@@ -1,0 +1,13 @@
+*.log
+*.pot
+*.pyc
+
+settings.py
+
+*.json
+
+*~
+
+media/temp
+
+.idea/
