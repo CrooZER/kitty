@@ -1,3 +1,4 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 from taggit.managers import TaggableManager
 # Create your models here.
@@ -10,7 +11,7 @@ class Reason(models.Model):
 
     title = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    create_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     rating = models.IntegerField()
     tags = TaggableManager()
@@ -21,4 +22,4 @@ class Reason(models.Model):
 
 
     def get_absolute_url(self):
-        return "/%s/" % self.id
+        return reverse('reason_item', args=[self.id])
