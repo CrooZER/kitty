@@ -9,6 +9,9 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'apps.bash.views.index', name='home'),
     url(r'^reason/(\d+)/$', 'apps.bash.views.reason', name='reason_item'),
+    url(r'^popular$', 'apps.bash.views.popular', name='reason_item'),
+    url(r'^new$', 'apps.bash.views.new', name='new_reason'),
+
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
