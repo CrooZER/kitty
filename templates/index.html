@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load taggit_templatetags2_tags %}
 {% block body %}
     <!-- Page Content -->
     <div class="container container-body ">
@@ -14,7 +14,7 @@
         </div>
         <!-- /.row -->
 
-
+<div class="col-md-9">
  {% if reasons %}
 
             {% for reason in reasons %}
@@ -51,6 +51,13 @@
     {% else %}
         <p>No reasons are available.</p>
     {% endif %}
+</div>
+    <div class="col-md-3">
+
+    {% include_tagcloud 'bash.Reason'%}
+
+
+    </div>
         <!-- /.row -->
 
         <!-- /.row -->
@@ -94,5 +101,6 @@
     </div>
     <!-- /.container -->
 {% endblock %}
+
 
 {# Read the documentation for more information #}

@@ -39,6 +39,14 @@
                 </button>
                 <a class="navbar-brand" href="#"><img src="/public/media/logo.png" alt="" class="main-logo"/></a>
             </div>
+            <div class="row">
+                <div class="col-md-5 cats-count">
+
+                        В мире уже известно {{ cats_count }} причин смерти котят.
+
+
+                </div>
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -52,6 +60,7 @@
                         <a href="/new">New</a>
                     </li>                </ul>
             </div>
+            </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -60,6 +69,8 @@
     {% block body %}
     <!-- Page Content -->
     <div class="container container-body">
+        <div class="row">
+
 
         <!-- Page Heading -->
         <div class="row">
@@ -70,24 +81,25 @@
             </div>
         </div>
         <!-- /.row -->
-
+<div class="row"></div>
 
  {% if reasons %}
 
             {% for reason in reasons %}
         <!-- Project One -->
-        <div class="row">
 
-            <div class="col-md-8">
+
+            <div class="col-md-9">
                <a href="/reason/{{ reason.id }}/">{{ reason.title }}</a>
                 <a class="btn btn-primary" href="#">View Project <span class="glyphicon glyphicon-chevron-right"></span></a>
             </div>
-        </div>
+
             {% endfor %}
 
     {% else %}
         <p>No reasons are available.</p>
     {% endif %}
+
         <!-- /.row -->
 
         <!-- /.row -->
@@ -126,19 +138,26 @@
 
         <hr>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
 
-    </div>
-    <!-- /.container -->
+
+            </div>
+
+
+        <!-- /.container -->
+        {% block footer %}
+             <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; Your Website 2014</p>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </footer>
+        {% endblock %}
+
 {% endblock %}
+    </div>
 
 </body>
 

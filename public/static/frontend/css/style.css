@@ -4,3 +4,9 @@
 .container{
     margin-top: 20px;
 }
+.cats-count{
+   margin: 0 10px;
+  color: #f24385;
+  padding-left: 18px;
+  font-style: italic;
+}

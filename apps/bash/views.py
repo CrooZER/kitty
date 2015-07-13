@@ -9,6 +9,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
     reasons = Reason.objects.all().order_by('-created_at')
+    cats_count = reasons.count()
     paginator = Paginator(reasons, 5)
 
     page = request.GET.get('page')
@@ -18,7 +19,8 @@ def index(request):
         reasons = paginator.page(1)
     except EmptyPage:
         reasons = paginator.page(paginator.num_pages)
-    return render_to_response('index.html', {'reasons': reasons})
+
+    return render_to_response('index.html', {'reasons': reasons, 'cats_count' : cats_count})
 
 def popular(request):
     reasons = Reason.objects.all().order_by('-rating')
