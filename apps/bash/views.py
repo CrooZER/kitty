@@ -42,6 +42,7 @@ def reason(request, reason_id):
         raise Http404
     return render_to_response('reason.html', {'reason' : reason })
 
+
 def new(request):
     if request.method == 'POST':
         form = ReasonForm(request.POST)
@@ -53,3 +54,18 @@ def new(request):
         form = ReasonForm()
     return render (request, 'form.html', {'form': form})
 
+
+def tag( request, tag, page=1):
+    try:
+        reasons = Reason.objects.filter(tags__name__in=[tag])
+    except Reason.DoesNotExist:
+        raise Http404
+
+    paginator = Paginator(reasons, 5)
+    try:
+        reasons = paginator.page(page)
+    except PageNotAnInteger:
+        reasons = paginator.page(1)
+    except EmptyPage:
+        reasons = paginator.page(paginator.num_pages)
+    return render_to_response('index.html', {'reasons': reasons})

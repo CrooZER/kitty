@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.conf.urls import patterns, include, url
 
 from django.contrib import admin
@@ -9,8 +10,9 @@ urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'apps.bash.views.index', name='home'),
     url(r'^reason/(\d+)/$', 'apps.bash.views.reason', name='reason_item'),
-    url(r'^popular$', 'apps.bash.views.popular', name='reason_item'),
+    url(r'^popular$', 'apps.bash.views.popular', name='popular_reasons'),
     url(r'^new$', 'apps.bash.views.new', name='new_reason'),
+    url(ur'^tag/(?P<tag>[a-zA-Zа-яА-Я]+)', 'apps.bash.views.tag', name='tag'),
 
     # url(r'^blog/', include('blog.urls')),
 

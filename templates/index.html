@@ -54,7 +54,10 @@
 </div>
     <div class="col-md-3">
 
-    {% include_tagcloud 'bash.Reason'%}
+        {% get_taglist as tags_cloud for 'bash.Reason'%}
+            {% for tag_cloud in tags_cloud  %}
+                <a href="/tag/{{ tag_cloud }}">{{ tag_cloud }}</a>
+            {% endfor %}
 
 
     </div>
